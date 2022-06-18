@@ -1,12 +1,15 @@
-import { useState, useEffect } from "react";
+import { Provider } from "react-redux";
 import styled from "styled-components";
 import Content from "../content/Content";
+import store from "../../store/store";
 
-function Main(props) {
+function Main() {
     return (
-        <WrapContent>
-            <Content />
-        </WrapContent>
+        <Provider store={store}>
+            <WrapContent>
+                <Content />
+            </WrapContent>
+        </Provider>
     );
 }
 

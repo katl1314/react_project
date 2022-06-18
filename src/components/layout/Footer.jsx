@@ -1,6 +1,8 @@
-// import { useState, useEffect } from "react";
+import styled from "styled-components";
+
 function Footer(props) {
-    return <footer className="App-header">푸터 영역</footer>;
+    return <MyFooter>푸터 영역</MyFooter>;
 }
 
+const MyFooter = styled.footer``;
 export default Footer;

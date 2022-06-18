@@ -5,30 +5,20 @@ import "../../App.css";
 function SubMenu() {
     return (
         <Ul>
-            <Li className="submenu_li">
-                <NavLink style={{ "text-decoration": "none" }} to="/">
-                    Home
-                </NavLink>
+            <Li>
+                <StyledNavLink to="/weather">Weather</StyledNavLink>
             </Li>
-            <Li className="submenu_li">
-                <NavLink style={{ "text-decoration": "none" }} to="/about">
-                    About
-                </NavLink>
+            <Li>
+                <StyledNavLink to="/todo">Todo</StyledNavLink>
             </Li>
-            <Li className="submenu_li">
-                <NavLink style={{ "text-decoration": "none" }} to="/note">
-                    Note
-                </NavLink>
+            <Li>
+                <StyledNavLink to="/note">Note</StyledNavLink>
             </Li>
-            <Li className="submenu_li">
-                <NavLink style={{ "text-decoration": "none" }} to="/hobby">
-                    Hobby
-                </NavLink>
+            <Li>
+                <StyledNavLink to="/hobby">Hobby</StyledNavLink>
             </Li>
-            <Li className="submenu_li">
-                <NavLink style={{ "text-decoration": "none" }} to="/contact">
-                    Contact
-                </NavLink>
+            <Li>
+                <StyledNavLink to="/contact">Contact</StyledNavLink>
             </Li>
         </Ul>
     );
@@ -42,9 +32,14 @@ const Ul = styled.ul`
 
 const Li = styled.li`
     display: inline-block;
-    width: 50px;
+    width: auto;
     line-height: 70px;
     margin: auto 15px 0px 15px;
+`;
+/* NavLink같이 기본적으로 제공하는 태그는 다음과 같이 정의해야함. styled(NavLink) */
+const StyledNavLink = styled(NavLink)`
+    text-decoration: none;
+    color: black;
 `;
 
 export default SubMenu;

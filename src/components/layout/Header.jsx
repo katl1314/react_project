@@ -4,7 +4,7 @@ import Gnb from "./Gnb";
 
 function Header(props) {
     return (
-        <WrapHeader className="App-header">
+        <WrapHeader>
             <MyHeader>
                 <Logo />
                 <Gnb />
