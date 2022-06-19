@@ -24,11 +24,10 @@ function Content() {
 // 스타일드 컴포넌트
 const WrapContent = styled.div`
     min-width: 100%;
-    height: 100%;
+    height: calc(100% - 70px);
     display: inline-block;
     float: right;
     position: relative;
-    top: 80px;
 `;
 
 export default Content;

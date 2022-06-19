@@ -20,12 +20,13 @@ const WrapHeader = styled.div`
     background: #fff;
     position: fixed;
     line-height: 75px;
+    box-sizing: border-box;
     border-bottom: 1px solid #efefef;
 `;
 
 const MyHeader = styled.div`
     margin: 0 auto;
-    width: 1100px;
+    width: 1200px;
     position: relative;
 `;
 export default Header;

@@ -2,9 +2,9 @@ import styled from "styled-components";
 
 function Logo() {
     return (
-        <h2>
+        <h1 style={{ margin: 0 }}>
             <A href="/">오늘의 날씨</A>
-        </h2>
+        </h1>
     );
 }
 

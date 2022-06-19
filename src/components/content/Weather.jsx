@@ -1,29 +1,54 @@
+import { useState, useEffect } from "react";
+import styled from "styled-components";
 import store from "../../store/store";
-import Map from "./Map";
+import Container from "./Container";
+import WeatherView from "./WeatherView";
 
 function Weather() {
     // dispatch를 통해 action을 store에 전달하고, state변경 시
-    store.subscribe(() => {
-        const { lon, lat } = store.getState().position;
-
+    const [weatherData, setWeatherData] = useState([]);
+    const [cityData, setCityData] = useState({});
+    const setFetch = (city, callback) => {
         fetch(
-            `https://api.openweathermap.org/data/2.5/weather?lat=${lon}&lon=${lat}&appid=${process.env.REACT_APP_WEATHER_API_KEY}`
+            `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${process.env.REACT_APP_WEATHER_API_KEY}`
         )
             .then((result) => {
                 if (!result.ok) {
                     throw new Error(`${result.status}`);
                 }
-                result.json();
+                return result.json();
             })
-            .then((data) => console.log(data))
+            .then((data) => callback(data))
             .catch((err) => console.error(err));
+    };
+
+    const setFetchCallback = (data) => {
+        setWeatherData(data.list);
+        setCityData(data.city);
+    };
+
+    store.subscribe(() => {
+        const { city } = store.getState().position;
+        setFetch(city, setFetchCallback);
     });
 
+    // 초기 위치의 날씨 정보 취득 componentDidMount
+    useEffect(() => {
+        const { city } = store.getState().position;
+        setFetch(city, setFetchCallback);
+    }, []);
+
     return (
-        <div style={{ width: "100%", height: "100%" }}>
-            <Map />
-        </div>
+        <WrapDiv>
+            <Container />
+            <WeatherView weatherData={weatherData} cityData={cityData} />
+        </WrapDiv>
     );
 }
+
+const WrapDiv = styled.div`
+    width: 100%;
+    height: 100%;
+`;
 
 export default Weather;
