@@ -8,7 +8,7 @@ function Container(props) {
                     position: "relative",
                 }}
             >
-                <H2>어디의 날씨가 궁금해요?</H2>
+                <H2>어디 날씨가 궁금해요?</H2>
             </div>
             <div
                 style={{
