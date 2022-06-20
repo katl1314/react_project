@@ -2,11 +2,10 @@ import styled from "styled-components";
 
 function Container(props) {
     return (
-        <WeahterForm>
+        <WeatherForm>
             <div
                 style={{
                     position: "relative",
-                    top: "75px",
                 }}
             >
                 <H2>어디의 날씨가 궁금해요?</H2>
@@ -14,7 +13,6 @@ function Container(props) {
             <div
                 style={{
                     position: "relative",
-                    top: "75px",
                     height: "75px",
                     textAlign: "center",
                     lineHeight: "75px",
@@ -31,13 +29,12 @@ function Container(props) {
                     }}
                 />
             </div>
-        </WeahterForm>
+        </WeatherForm>
     );
 }
 
-const WeahterForm = styled.div`
+const WeatherForm = styled.div`
     width: 100%;
-    height: 250px;
     background: lightblue;
 `;
 

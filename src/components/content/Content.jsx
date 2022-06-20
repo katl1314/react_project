@@ -1,17 +1,17 @@
 import React from "react";
 import styled from "styled-components";
 import { Routes, Route } from "react-router-dom";
-import Weather from "./Weather";
 import Todo from "./Todo";
 import Note from "./Note";
 import Hobby from "./Hobby";
 import Contact from "./Contact";
+import WeatherContainer from "../../containers/WeatherContainer";
 
 function Content() {
     return (
         <WrapContent>
             <Routes>
-                <Route path="/weather" element={<Weather />}></Route>
+                <Route path="/weather" element={<WeatherContainer />}></Route>
                 <Route path="/todo" element={<Todo />}></Route>
                 <Route path="/note" element={<Note />}></Route>
                 <Route path="/hobby" element={<Hobby />}></Route>

@@ -16,9 +16,7 @@ function Header(props) {
 const WrapHeader = styled.div`
     height: 75px;
     min-width: 100%;
-    z-index: 9999;
     background: #fff;
-    position: fixed;
     line-height: 75px;
     box-sizing: border-box;
     border-bottom: 1px solid #efefef;
