@@ -1,5 +1,5 @@
 function Hobby() {
-    return <div>Hobby....</div>;
+    return <div>My Hobby....</div>;
 }
 
 export default Hobby;
