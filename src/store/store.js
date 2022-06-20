@@ -2,12 +2,15 @@ import { createStore } from "redux";
 
 const mapReducer = (state, action) => {
     if (!state) {
-        const city = "seoul";
+        const lat = 37.5666805;
+        const lon = 126.9784147;
+        const city = "서울";
         return {
             position: {
-                city,
+                lat,
+                lon,
             },
-            kakao: { ...window.kakao },
+            city,
             type: null,
         };
     }

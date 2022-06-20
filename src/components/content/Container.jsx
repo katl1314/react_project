@@ -1,7 +1,6 @@
 import styled from "styled-components";
-import store from "../../store/store";
 
-function Container() {
+function Container(props) {
     return (
         <WeahterForm>
             <div
@@ -28,12 +27,7 @@ function Container() {
                     onClick={() => {
                         const searchData =
                             document.getElementById("search").value;
-                        store.dispatch({
-                            position: {
-                                city: searchData,
-                            },
-                            type: "change",
-                        });
+                        props.onClick(searchData);
                     }}
                 />
             </div>

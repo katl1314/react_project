@@ -27,7 +27,6 @@ function WeatherView(props) {
                         <div>
                             체감 온도: {Common.convertTemper(main.feels_like)}
                         </div>
-                        <div>습도: {Common.convertTemper(main.humidity)}</div>
                         <div>
                             최고 온도: {Common.convertTemper(main.temp_max)}
                         </div>
@@ -48,7 +47,7 @@ function WeatherView(props) {
                 margin: "0 auto",
             }}
         >
-            <H3>{cityData.name}의 날씨 정보</H3>
+            <H3>{cityData}의 날씨 정보</H3>
             {WeatherItem}
         </div>
     );
