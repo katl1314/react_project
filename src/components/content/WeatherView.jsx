@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
-import styled from "styled-components";
-import Common from "../common";
+import ListView from "./ListView";
 
 function WeatherView(props) {
     const [WeatherItem, setWeatherItem] = useState([]);
@@ -9,33 +8,19 @@ function WeatherView(props) {
         if (weatherData.length) {
             const items = weatherData.map((d, i) => {
                 const { main, dt_txt } = d;
+                // map메서드를 이용하여 리스트 생성할 경우 key 어트리뷰트를 설정해야함.
                 return (
-                    <List key={`weather_list_${i}`}>
-                        <div>{dt_txt}</div>
-                        <div>현재 기온: {Common.convertTemper(main.temp)}</div>
-                        <div>
-                            최고 온도: {Common.convertTemper(main.temp_max)}
-                        </div>
-                        <div>
-                            최저 온도: {Common.convertTemper(main.temp_min)}
-                        </div>
-                    </List>
+                    <ListView
+                        key={`weather_list_${i}`}
+                        weather={main}
+                        date={dt_txt}
+                    ></ListView>
                 );
             });
             setWeatherItem(items);
         }
-    }, [props]);
+    }, [weatherData]);
     return <div style={{ margin: "0 auto", width: "70%" }}>{WeatherItem}</div>;
 }
-
-const List = styled.div`
-    border: 1px solid;
-    borderradius: 5px;
-    margin: 20px;
-    padding: 10px;
-    width: 15%;
-    height: 100px;
-    display: inline-block;
-`;
 
 export default WeatherView;

@@ -9,6 +9,7 @@ export default function () {
         city: store.getState().city,
         list: [],
     });
+    const weatherURL = "https://api.openweathermap.org/data/2.5/forecast";
 
     const onClick = (searchData) => {
         let places = new window.kakao.maps.services.Places();
@@ -32,7 +33,6 @@ export default function () {
     };
 
     const setFetchCallback = (city, data) => {
-        console.log(data);
         setWeatherData({ city, list: data.list });
     };
 
@@ -42,13 +42,13 @@ export default function () {
         store.subscribe(() => {
             const { position, city } = store.getState();
             const { lat, lon } = position;
-            const url = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&lang=kr&cnt=10&appid=${process.env.REACT_APP_WEATHER_API_KEY}`;
+            const url = `${weatherURL}?lat=${lat}&lon=${lon}&lang=kr&cnt=10&appid=${process.env.REACT_APP_WEATHER_API_KEY}`;
             Common.setWeatherFetch(setFetchCallback, url, city);
         });
 
         const { position, city } = store.getState();
         const { lat, lon } = position;
-        const url = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&lang=kr&cnt=10&appid=${process.env.REACT_APP_WEATHER_API_KEY}`;
+        const url = `${weatherURL}?lat=${lat}&lon=${lon}&lang=kr&cnt=10&appid=${process.env.REACT_APP_WEATHER_API_KEY}`;
         Common.setWeatherFetch(setFetchCallback, url, city);
     }, []);
     return <Weather weatherData={weatherData} onClick={onClick} />;
