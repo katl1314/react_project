@@ -5,6 +5,9 @@ import "../../App.css";
 function Gnb() {
     return (
         <Ul>
+            {/* <Li>
+                <StyledNavLink to="/">Weather</StyledNavLink>
+            </Li>
             <Li>
                 <StyledNavLink to="/weather">Weather</StyledNavLink>
             </Li>
@@ -19,7 +22,7 @@ function Gnb() {
             </Li>
             <Li>
                 <StyledNavLink to="/contact">Contact</StyledNavLink>
-            </Li>
+            </Li> */}
         </Ul>
     );
 }
