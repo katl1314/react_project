@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import ListView from "./ListView";
+import WeatherListView from "./WeatherListView";
 
 function WeatherView(props) {
     const [WeatherItem, setWeatherItem] = useState([]);
@@ -10,11 +10,11 @@ function WeatherView(props) {
                 const { main, dt_txt } = d;
                 // map메서드를 이용하여 리스트 생성할 경우 key 어트리뷰트를 설정해야함.
                 return (
-                    <ListView
+                    <WeatherListView
                         key={`weather_list_${i}`}
                         weather={main}
                         date={dt_txt}
-                    ></ListView>
+                    ></WeatherListView>
                 );
             });
             setWeatherItem(items);

@@ -1,7 +1,7 @@
-import Common from "../common";
+import Common from "../../common";
 import styled from "styled-components";
 
-export default function ListView({ weather, date }) {
+export default function WeatherListView({ weather, date }) {
     return (
         <WeatherItem>
             <div>{date}</div>

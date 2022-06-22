@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import Common from "../components/common";
-import Weather from "../components/content/Weather";
+import Weather from "../components/content/weather/Weather";
 import store from "../store/store";
 
 // eslint-disable-next-line import/no-anonymous-default-export
